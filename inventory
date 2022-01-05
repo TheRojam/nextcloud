@@ -1,5 +1,6 @@
 [nextcloud]
-localhost ansible_connection=local
+#localhost ansible_connection=local
+next.dezentrale.cloud  ansible_ssh_private_key_file=/home/therojam/id_dezentrale ansible_remote_user=deploy
 
 [nextcloud:vars]
 
@@ -8,14 +9,14 @@ localhost ansible_connection=local
 # fqdn       = nc.example.org
 
 # selfsigned certificate as default
-ssl_certificate_type  = 'selfsigned'
+# ssl_certificate_type  = 'selfsigned'
 
 # Letsencrypt or selfsigned certificate
-# ssl_certificate_type  = 'letsencrypt'
+ssl_certificate_type  = 'letsencrypt'
 
 
 # Your email adresse for letsencrypt
-# cert_email = nc@example.org
+cert_email = vorstand@dezentrale.space 
 
 # receive a certificate from staging
 # uncomment if you want to use letsencrypt staging environment
@@ -32,12 +33,12 @@ nc_ssl_port          = 443
 nc_datadir           = /var/nc-data
 
 # admin user
-nc_admin             = 'admin'
-nc_passwd            = ''             # leave empty to generate random password
+nc_admin             = 'dezentrale-admin'
+nc_passwd            = 'u0[7$\X0tXGNz2t5{^M}]'             # leave empty to generate random password
 
 # database settings
-# nc_db_type          = 'mysql'        # (MariaDB)
-nc_db_type           = 'pgsql'        # (PostgreSQL)
+nc_db_type          = 'mysql'        # (MariaDB)
+#nc_db_type           = 'pgsql'        # (PostgreSQL)
 nc_db_host           = 'localhost'
 nc_db                = 'nextcloud'
 nc_db_user           = 'nextcloud'
@@ -45,7 +46,7 @@ nc_db_passwd         = ''             # leave empty to generate random password
 
 # Nextcloud mail setup
 nc_configure_mail    = false
-nc_mail_from         =
+nc_mail_from         = noreply@next.dezentrale.space
 nc_mail_smtpmode     = smtp
 nc_mail_smtpauthtype = LOGIN
 nc_mail_domain       =
@@ -58,11 +59,11 @@ nc_mail_smtpname     =
 nc_mail_smtppwd      =
 
 # php Version
-php_version          = '7.3'
+php_version          = '8.0'
 
 # Install turn server for Nextcloud Talk
 # currently broken for https://help.nextcloud.com/t/cannot-install-talk-on-fresh-nextcloud-18-install/68613
-talk_install         = false
+talk_install         = true 
 
 # Allways get the latest version of Nextcloud
 next_archive         = https://download.nextcloud.com/server/releases/latest.tar.bz2
@@ -87,7 +88,7 @@ install_collabora     = false
 
 # Install Online Office
 # more info about onlyoffice office: https://www.onlyoffice.com
-install_onlyoffice    = false
+install_onlyoffice    = true 
 onlyoffice_ssl_port   = 8443
 
 # Install ufw
