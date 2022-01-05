@@ -24,8 +24,8 @@
   apt:
     name:
     - nginx
-    - python-pip
-    - python-netaddr
+    - python3-pip
+    - python3-netaddr
     autoremove: true
     allow_unauthenticated: true
     state: latest
