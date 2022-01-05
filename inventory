@@ -59,7 +59,7 @@ nc_mail_smtpname     =
 nc_mail_smtppwd      =
 
 # php Version
-php_version          = '8.0'
+php_version          = '7.4'
 
 # Install turn server for Nextcloud Talk
 # currently broken for https://help.nextcloud.com/t/cannot-install-talk-on-fresh-nextcloud-18-install/68613
