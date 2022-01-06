@@ -50,7 +50,7 @@
   - name: first setup nextcloud
     become_user: "{{ web_user[ansible_distribution] }}"
     become: yes
-    shell: >
+    command: >
       php occ  maintenance:install 
       --database {{ nc_db_type }} 
       --database-host "{{ nc_db_host }}" 
