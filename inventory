@@ -1,3 +1,7 @@
+[nextcloud]
+#localhost ansible_connection=local
+next.dezentrale.cloud  ansible_ssh_private_key_file=/home/therojam/id_dezentrale ansible_remote_user=deploy
+
 [all:vars]
 
 # Your Nextcloud Server Domain Name
@@ -9,10 +13,10 @@ nextcloud_fqdn          = nextcloud.example.tld
 nextcloud_certificate_type  = 'selfsigned'
 
 # Letsencrypt Certificate provided with acme.sh (https://github.com/Neilpang/acme.sh)
-# nextcloud_certificate_type  = 'acme.sh'
+nextcloud_certificate_type  = 'acme.sh'
 
 # Your email Addresse for Letsencrypt
-# nextcloud_cert_email = nc@example.org
+cert_email = vorstand@dezentrale.space 
 
 #
 # Nextcloud varibales
@@ -29,13 +33,13 @@ nextcloud_data_dir          = /var/nc-data
 
 # Nextcloud Admin User
 # Leave Password Empty to generate secure, random one
-nextcloud_admin             = 'admin'
-nextcloud_passwd            = ''
+nc_admin             = 'dezentrale-admin'
+nc_passwd            = 'u0[7$\X0tXGNz2t5{^M}]'             # leave empty to generate random password
 
 # Nextcloud Database Settings
 # Leave Password Empty to generate secure, random one
-#nextcloud_db_type           = 'mysql'        # (MariaDB)
-nextcloud_db_type           = 'pgsql'        # (PostgreSQL)
+nextcloud_db_type           = 'mysql'        # (MariaDB)
+#nextcloud_db_type           = 'pgsql'        # (PostgreSQL)
 nextcloud_db_host           = 'localhost'
 nextcloud_db                = 'nextcloud'
 nextcloud_db_user           = 'nextcloud'
@@ -106,11 +110,11 @@ install_collabora     = false
 
 # Install Online Office
 # more info about onlyoffice office: https://www.onlyoffice.com
-install_onlyoffice    = false
+install_onlyoffice    = true
 onlyoffice_ssl_port   = 8443
 
 # Install fulltextsearch
-install_fulltextsearch = false
+install_fulltextsearch = true
 
 #
 # Environment Definitions
